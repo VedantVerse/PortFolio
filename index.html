@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vedant Singh Bachhotiya | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(270deg, #00ff37, #8a2be2, #ff002b, #00ffff);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: neonFlow 10s ease infinite;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    @keyframes neonFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #a78bfa;
+    }
+
+    section {
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+    }
+
+    .neon-text {
+      font-size: 3.5rem;
+      font-weight: 700;
+      background: linear-gradient(270deg, #00bfff, #8a2be2, #ff00ff, #00ffff);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: waterFlow 10s ease infinite, floaty 6s ease-in-out infinite;
+      text-align: center;
+    }
+
+    @keyframes waterFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes floaty {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .hero p {
+      max-width: 600px;
+      line-height: 1.6;
+      opacity: 0.9;
+      margin-top: 20px;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Liquid glass projects */
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      padding: 50px 30px;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(15px) saturate(180%);
+      -webkit-backdrop-filter: blur(15px) saturate(180%);
+      transition: transform 0.35s ease, background 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.15), rgba(255,255,255,0));
+      transform: rotate(25deg);
+      pointer-events: none;
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { transform: translate(-100%, -100%) rotate(25deg); opacity: 0.3; }
+      50% { transform: translate(100%, 100%) rotate(25deg); opacity: 0.2; }
+      100% { transform: translate(-100%, -100%) rotate(25deg); opacity: 0.3; }
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .project-card h3 {
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: #ddd;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .project-card a {
+      color: #00bfff;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .project-card a:hover {
+      color: #ff00ff;
+    }
+
+    .about {
+      margin-top: 60px;
+      text-align: left;
+    }
+
+    .about h3 {
+      color: #a78bfa;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      margin-top: 80px;
+    }
+
+    .contact-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 12px 30px;
+      border-radius: 30px;
+      color: #fff;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.4s ease;
+      font-weight: 500;
+    }
+
+    .contact-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* MOBILE RESPONSIVE STYLES */
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+      }
+
+      nav {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      nav a {
+        margin-left: 0;
+        font-size: 0.95rem;
+      }
+
+      section {
+        padding: 50px 5%;
+      }
+
+      .hero {
+        min-height: 60vh;
+      }
+
+      .neon-text {
+        font-size: 2.2rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .hero p {
+        max-width: 100%;
+        font-size: 0.95rem;
+      }
+
+      .projects {
+        padding: 30px 15px;
+        border-radius: 20px;
+      }
+
+      .project-card {
+        padding: 20px;
+        border-radius: 15px;
+      }
+
+      .project-card h3 {
+        font-size: 1.1rem;
+      }
+
+      .project-card p {
+        font-size: 0.9rem;
+      }
+
+      .contact-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+      }
+
+      .about h3,
+      .about p {
+        font-size: 0.95rem;
+      }
+
+      footer {
+        padding: 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 data-text="Vedant Singh Bachhotiya">Vedant Singh Bachhotiya</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h2 class="neon-text">Hey, I'm Vedant 👋</h2>
+    <p>A passionate software developer who loves creating beautiful, functional web experiences with HTML, CSS, and JavaScript. Always exploring new ideas and building something unique! 🚀</p>
+    <button class="contact-btn" onclick="scrollToContact()">Let's Connect</button>
+  </section>
+
+  <section id="projects">
+    <h2>🚀 My Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Calculator</h3>
+        <p>A stylish calculator web app</p>
+        <a href="https://calculator-iso.vercel.app/" target="_blank">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>💬 AURA</h3>
+        <p>A working (in-dev) AI focusing on simplicity, and speed.</p>
+        <a href="http://aura-iso.vercel.app/" target="_blank">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>💡 About Me</h2>
+    <h3>Who am I?</h3>
+    <p>I'm Vedant Singh Bachhotiya, a 16-year-old student and developer from India 🇮🇳. I love designing and coding interactive websites and apps. Currently exploring Linux, JavaScript, and C++ to improve my development skills.</p>
+    <p>I also enjoy making school projects that stand out — like my school website project that aims for the first prize! 🏆</p>
+  </section>
+
+  <section id="contact">
+    <h2>📬 Contact Me</h2>
+    <p>Wanna collaborate or chat about tech? Reach out!</p>
+    <div>
+      <a href="https://github.com/VedantVerse" target="_blank">GitHub</a> |
+      <a href="mailto:vedant@example.com">Email</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made with ❤️ by Vedant Singh Bachhotiya</p>
+  </footer>
+
+  <script>
+    function scrollToContact() {
+      document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+    }
+  // Smooth scroll for nav links
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault(); // prevent default jump
+      const target = document.querySelector(link.getAttribute('href'));
+      target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Optional: Button scroll
+  function scrollToContact() {
+    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+  }
+  </script>
+</body>
+</html>
