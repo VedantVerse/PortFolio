@@ -25,21 +25,17 @@
       header {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
-        padding: 25px 10px;
-        border-end-end-radius: 25px;
-        border-end-start-radius: 25px;
-
+        padding: 20px 60px;
+        border-end-end-radius: 50px;
+        border-end-start-radius: 50px;
         background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(20px) saturate(180%);
-        -webkit-backdrop-filter: blur(20px) saturate(180%);
-
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-
+        backdrop-filter: blur(10px);
         position: sticky;
         top: 0;
         z-index: 10;
+        flex-wrap: wrap;
       }
 
       h1 {
@@ -89,6 +85,7 @@
       nav a:hover {
         background: rgba(255, 255, 255, 0.15);
         border-color: rgba(255, 255, 255, 0.3);
+        animation: neonFlow 10s ease infinite, floaty 1s ease-in-out infinite;
       }
 
       section {
@@ -105,14 +102,36 @@
       }
 
       .neon-text {
-        font-size: 3.5rem;
-        font-weight: 700;
-        background: linear-gradient(270deg, #00bfff, #8a2be2, #ff00ff, #00ffff);
-        background-size: 600% 600%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding: 8px 20px;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
         animation: waterFlow 10s ease infinite, floaty 6s ease-in-out infinite;
         text-align: center;
+      }
+
+      .neon-text::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 300%;
+        height: 300%;
+        background: linear-gradient(
+          120deg,
+          rgba(255, 255, 255, 0.205),
+          rgba(255, 255, 255, 0.068)
+        );
+        transform: rotate(25deg);
+        pointer-events: none;
+        animation: shine 5s infinite;
       }
 
       @keyframes waterFlow {
@@ -300,6 +319,41 @@
         font-size: larger;
       }
 
+      .liquid-bg {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        filter: url(#turb);
+        z-index: -2;
+        background: transparent;
+      }
+
+      .fluid-layer {
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at 20% 30%, #6a5af9, transparent 50%),
+          radial-gradient(circle at 80% 70%, #00eaff, transparent 50%),
+          radial-gradient(circle at 50% 50%, #ff5edb, transparent 50%);
+        background-size: 200% 200%;
+        animation: colorFlow 10s ease-in-out infinite alternate;
+        z-index: -3;
+      }
+
+      @keyframes colorFlow {
+        0% {
+          background-position: 10% 10%;
+          filter: hue-rotate(0deg);
+        }
+        50% {
+          background-position: 80% 90%;
+          filter: hue-rotate(120deg);
+        }
+        100% {
+          background-position: 20% 70%;
+          filter: hue-rotate(360deg);
+        }
+      }
+
       /* MOBILE RESPONSIVE STYLES */
       @media screen and (max-width: 768px) {
         header {
@@ -387,6 +441,26 @@
       </nav>
     </header>
 
+    <svg class="liquid-bg" style="opacity: 0">
+      <filter id="turb">
+        <feTurbulence
+          type="turbulence"
+          baseFrequency="0.005"
+          numOctaves="3"
+          seed="2"
+        >
+          <animate
+            attributeName="baseFrequency"
+            dur="20s"
+            values="0.005;0.002;0.008;0.004;0.006;0.005"
+            repeatCount="indefinite"
+          />
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" scale="60" />
+      </filter>
+    </svg>
+    <div class="fluid-layer"></div>
+
     <section class="hero" id="home">
       <h2 class="neon-text">Hey, I'm Vedant 👋</h2>
       <p class="bio">
@@ -468,4 +542,3 @@
     </script>
   </body>
 </html>
-
