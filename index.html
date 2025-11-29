@@ -17,7 +17,7 @@
       }
 
       body {
-        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        background: url("106021-3840x2160-desktop-4k-heart-background-image.jpg");
         color: #fff;
         overflow-x: hidden;
       }
@@ -379,8 +379,8 @@
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        background: var(--card-bg);
-        backdrop-filter: blur(8px);
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px) saturate(180%);
         transition: 0.3s ease;
         border: 1px solid rgba(255, 255, 255, 0.16);
       }
@@ -404,7 +404,6 @@
         align-items: start;
       }
 
-      /* ✨ LIQUID GLASS CARD → VisionOS Style */
       .card {
         position: relative;
         padding: 18px;
@@ -419,7 +418,6 @@
         overflow: hidden;
       }
 
-      /* Internal Shine Layer */
       .card::after {
         content: "";
         position: absolute;
@@ -438,17 +436,11 @@
         pointer-events: none;
       }
 
-      /* Clock */
-      .clock .timeBig {
-        font-size: 30px;
-        font-weight: 700;
-        margin-top: 6px;
-        text-shadow: 0 0 14px rgba(157, 107, 255, 0.45);
-      }
-      .dateSmall {
-        opacity: 0.85;
-        font-size: 13px;
-        margin-top: 6px;
+      .fotter {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px) saturate(200%);
       }
 
       /* MOBILE RESPONSIVE STYLES */
@@ -643,7 +635,7 @@
       </div>
     </section>
 
-    <footer>
+    <footer class="fotter">
       <p>Made with ❤️ by Vedant Singh Bachhotiya</p>
     </footer>
 
